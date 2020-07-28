@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
+import DevController from './app/controllers/DevController';
+
 const routes = new Router();
 
-routes.get('/', (request, response) => {
-  return response.json({ message: 'Hello World' });
-});
+routes.post('/devs', DevController.store);
 
 export default routes;
