@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import axios from 'axios';
 
+import parseStringAsArray from '../utils/parseStringAsArray';
 import Dev from '../schemas/Dev';
 
 class DevController {
@@ -36,7 +37,7 @@ class DevController {
 
     const { name = login, avatar_url, bio } = apiResponse.data;
 
-    const techsArray = techs.split(',').map((tech) => tech.trim());
+    const techsArray = parseStringAsArray(techs);
 
     const location = {
       type: 'Point',
