@@ -4,6 +4,12 @@ import axios from 'axios';
 import Dev from '../schemas/Dev';
 
 class DevController {
+  async index(request, response) {
+    const devs = await Dev.find();
+
+    return response.json(devs);
+  }
+
   async store(request, response) {
     const schema = Yup.object().shape({
       github_username: Yup.string().required(),
